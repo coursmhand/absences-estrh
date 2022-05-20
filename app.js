@@ -6,7 +6,7 @@ const passport = require('passport');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//const fs = require('fs');
+
 //const Classe = require('./models/classe.model');
 //const Categorie = require('./models/categorie.model');
 //const Module = require('./models/module.model');
