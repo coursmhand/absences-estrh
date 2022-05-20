@@ -10,8 +10,7 @@ var logger = require('morgan');
 //const Classe = require('./models/classe.model');
 //const Categorie = require('./models/categorie.model');
 //const Module = require('./models/module.model');
-//const Categorie = require('./models/categorie.model');
-//const Module = require('./models/module.model');
+
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
