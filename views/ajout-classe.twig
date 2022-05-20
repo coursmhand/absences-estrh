@@ -1,0 +1,78 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1 class="text-center"> Ajouter une classe</h1>
+    {% if errorForm %}
+        <p class="text-center">Corrigez l'erreur SVP</p>
+        <ul class="errors">
+            {% for error in errorForm %}
+
+                {% if error.nomclasse %}
+                    <li>{{error.nomclasse.message}}</li>
+                {% endif %}
+
+                {% if error.niveau %}
+                    <li>{{error.niveau.message}}</li>
+                {% endif %}
+
+                {% if error.filliere %}
+                    <li>{{error.filliere.message}}</li>
+                {% endif %}
+
+                    {% if error.categorie %}
+                    <li>{{error.categorie.message}}</li>
+                {% endif %}
+
+                {% if error.image %}
+                    <li>{{error.image.message}}</li>
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="/ajout-classe" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="">Nom Classe :</label>
+            <input type="text" name="nomclasse" id="nomclasse" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Niveau :</label>
+            <input type="text" name="niveau" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Filliere :</label>
+            <input type="text" name="filliere" class="form-control">
+        </div>
+       
+        <div class="form-group">
+            <label for="">Categorie :</label>
+            <select name="categorie" id="categorie" class="form-control">
+                <option VALUE="">Choix Categorie</option>
+                {% if categories %}
+                    {% for categorie in categories %}
+                        <option value="{{categorie.nomcategorie}}">{{categorie.nomcategorie}}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Image :</label>
+            <input type="file" name="image" id="image" class="form-control">
+        </div>
+        <button class="btn btn-success mt-3">Ajouter Classe</button>
+    </form>
+
+    
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}

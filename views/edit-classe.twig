@@ -1,0 +1,55 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1 class="text-center"> Editer la classe</h1>
+
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="">Nom Classe :</label>
+            <input type="text" name="nomclasse" id="nomclasse" value="{{ classe.nomclasse }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Niveau :</label>
+            <input type="text" name="niveau" id="niveau" value="{{classe.niveau}}" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Filliere :</label>
+            <input type="text" name="filliere" id="filliere" value="{{classe.filliere}}"class="form-control">
+        </div>
+       
+        <div class="form-group">
+            <label for="">Categorie :</label>
+            <select name="categorie" id="categorie" class="form-control">
+                <option VALUE="">Choix Categorie</option>
+                {% if categories %}
+                    {% for categorie in categories %}
+                        {% if categorie.nomcategorie is same as(classe.categorie) %}
+                            <option value="{{categorie.nomcategorie}}" selected>{{categorie.nomcategorie}}</option>
+                        {% else %}
+                        <option value="{{categorie.nomcategorie}}">{{categorie.nomcategorie}}</option>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Image :</label>
+            <input type="file" name="image" id="image" value="{{classe.image}}" class="form-control">
+        </div>
+        <button class="btn btn-success mt-3">Edit Classe</button>
+    </form>
+
+    
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}

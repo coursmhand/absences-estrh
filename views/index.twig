@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+  <p>Bienvenue aux {{title}}</p>
+  {% if classes %}
+  <div class="row">
+      {% for classe in classes %}
+        <div class="card col-md-3 m(2" style="width: 18rem;">
+            <img src="{{ classe.image }}" class="card-img-top" alt="{{classe.nomclasse}}">
+            <div class="card-body">
+                <h5 class="card-title">Nom: {{classe.nomclasse}}</h5>
+                <h5 class="card-title">Niveau: {{classe.niveau}}</h5>
+                <h5 class="card-title">Fillière: {{classe.filliere}}</h5>
+                <h5 class="card-title">Catégorie: {{classe.categorie}}</h5>
+                <p class="card-text">Les Classes de l'ESTIAM </p>
+                <a href="/classe/{{classe._id}}" class="btn btn-primary">Voir plus</a>
+                <a href="/edit-classe/{{classe._id}}" class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+      {% endfor %}
+  </div>
+  {% endif %}
+{% endblock %}

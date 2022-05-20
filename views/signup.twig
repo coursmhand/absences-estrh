@@ -1,0 +1,65 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1>Inscription </h1>
+        {% if errorForm %}
+        <p class="text-center">Corrigez l'erreur SVP</p>
+        <ul class="errors">
+            {% for error in errorForm %}
+
+                {% if error.username %}
+                    <li>{{error.username.message}}</li>
+                {% endif %}
+
+                {% if error.nom %}
+                    <li>{{error.nom.message}}</li>
+                {% endif %}
+
+                {% if error.prenom %}
+                    <li>{{error.prenom.message}}</li>
+                {% endif %}
+
+                    {% if error.email %}
+                    <li>{{error.email.message}}</li>
+                {% endif %}
+
+                {% if error.password %}
+                    <li>{{error.password.message}}</li>
+                {% endif %}
+                {% if error.passwordConfirm %}
+                    <li>{{error.passwordConfirm.message}}</li>
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action=""  method="POST">
+    <p class="text-center">Vous n'avez pas de compte ?<a href="/users/signup"> SVP, Cliquez sur le lien pour vous inscrire !</a></p>
+        <div class="form-group mt-1">
+            <label for="username"> Username : </label>
+            <input type="text" id="username" value="Boufala" name="username" class="form-control">
+        </div>
+        <div class="form-group mt-1">
+            <label for="nom"> nom : </label>
+            <input type="text" id="nom" value="Boufala" name="nom" class="form-control">
+        </div>
+        <div class="form-group mt-1">
+            <label for="prenom"> nom : </label>
+            <input type="text" id="prenom" value="Mhand" name="prenom" class="form-control">
+        </div>
+        <div class="form-group mt-1">
+            <label for="email"> Email : </label>
+            <input type="text" id="email" value="Mhand@estiam.com" name="email" class="form-control">
+        </div>
+        <div class="form-group mt-1">
+            <label for="password"> Password : </label>
+            <input type="password" name="password" value="Boufala" id="password"   class="form-control">
+        </div>
+        <div class="form-group mt-1">
+            <label for="passwordConfirm"> Repeter le mot de passe : </label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm"   class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Login</button>
+    </form>
+
+{% endblock body %}

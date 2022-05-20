@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1 class="text-center"> Ajouter une Categorie</h1>
+    
+    <form action="/ajout-categorie" method="post">
+        <div class="form-group">
+            <label for="">Categorie :</label>
+            <input type="text" name="nomcategorie" class="form-control">
+        </div>
+        
+        <button class="btn btn-success mt-3">Ajouter Categorie</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1 class="text-center"> Ajouter un Module</h1>
+    {% if success %}<div class="alert alert-success"> {{success}}</div>{% endif %}
+    {% if error %}<div class="alert alert-danger"> {{error}}</div>{% endif %}
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="">Nom Campus :</label>
+            <input type="text" name="nomcampus" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Adresse :</label>
+            <input type="text" name="adresse" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Site Web :</label>
+            <input type="text" name="siteweb" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Email :</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Telephone :</label>
+            <input type="text" name="tel" class="form-control">
+        </div>
+        
+        <button class="btn btn-success mt-3">Ajouter Campus</button>
+    </form>
+{% endblock %}
